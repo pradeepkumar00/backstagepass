@@ -43,6 +43,7 @@
 
   &__center {
     @include font(14px, $font-primary, var(--text-secondary));
+    font-weight: 600;
   }
 
   &__right {

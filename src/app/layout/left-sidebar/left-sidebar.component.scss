@@ -101,6 +101,7 @@
 
         .nav-item__label {
           @include font(14px, $font-primary, var(--locked-color));
+          font-weight: 500;
         }
 
       }
