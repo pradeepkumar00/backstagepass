@@ -1,0 +1,53 @@
+<div class="info-overlay" (click)="onClose()">
+  <div class="info-modal" (click)="$event.stopPropagation()">
+    <div class="info-modal__header">
+    </div>
+    <button class="info-modal__close" (click)="onClose()" aria-label="Close">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </button>
+
+    <div class="info-modal__scroll">
+      <div class="info-modal__hero">
+        <img src="assets/images/common/profile.png" alt="9-Day Fitness Challenge" />
+      </div>
+
+      <div class="info-modal__body">
+        <h2 class="info-modal__title">9-Day Fitness Challenge</h2>
+
+        <div class="info-modal__stats">
+          <div class="info-modal__stat">
+            <span class="info-modal__play-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 3L19 12L5 21V3Z" fill="var(--text)" />
+              </svg>
+            </span>
+            <span class="info-modal__stat-text">9 checkins</span>
+          </div>
+          <span class="info-modal__stat-divider"></span>
+          <div class="info-modal__stat">
+            <div class="info-modal__avatars">
+              <img src="assets/images/avatar/1.png" alt="" />
+              <img src="assets/images/avatar/2.png" alt="" />
+              <img src="assets/images/avatar/3.png" alt="" />
+            </div>
+            <span class="info-modal__stat-text">+75 participants joined</span>
+          </div>
+        </div>
+
+        <h3 class="info-modal__subtitle">Description</h3>
+        <p class="info-modal__description">
+          This 9-day fitness challenge is designed to help you build consistency, boost energy,
+          and feel stronger—one day at a time. Each day comes with a simple, achievable fitness
+          task that fits easily into your routine, no matter your current fitness level.
+        </p>
+
+        <p class="info-modal__cta">Join the challenge and start your journey</p>
+        <button class="info-modal__join" (click)="onJoin()">Join Now</button>
+      </div>
+    </div>
+  </div>
+</div>

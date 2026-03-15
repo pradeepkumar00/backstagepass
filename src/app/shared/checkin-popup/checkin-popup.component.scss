@@ -1,0 +1,273 @@
+@import 'core';
+.checkin-popup {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  @include flex(center, center, row);
+  background: rgba(0, 0, 0, 0.5);
+}
+.checkin {
+  @include background(var(--primary));
+  border-radius: $radius-lg;
+  width: 480px;
+  // max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  padding: $spacing-lg;
+  z-index: 2;
+  &__header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    height: 183px;
+    width: 100%;
+    background: var(--join-now-gradient);
+
+    backdrop-filter: blur(200px)
+  }
+  &__mobile-header {
+    display: none;
+  }
+
+  &__close-desktop {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 2;
+    width: 32px;
+    height: 32px;
+    border-radius: $radius-full;
+    @include background(var(--secondary));
+    @include flex(center, center, row);
+    cursor: pointer;
+    border: none;
+
+    svg {
+      stroke: var(--text);
+    }
+  }
+
+  &__user {
+    @include flex(flex-start, flex-start, column);
+    gap: $spacing-sm;
+    margin-bottom: $spacing-md;
+    position: relative;
+    z-index: 3;
+  }
+
+  &__avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: $radius-full;
+    overflow: hidden;
+    flex-shrink: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__name {
+    @include font(18px, $font-primary, var(--text));
+    font-weight: 700;
+  }
+
+  &__textarea {
+    width: 100%;
+    @include font(14px, $font-primary, var(--text));
+    @include background(transparent);
+    border: none;
+    outline: none;
+    resize: none;
+    margin-bottom: $spacing-lg;
+    line-height: 1.6;
+    position: relative;
+    z-index: 3;
+
+    &::placeholder {
+      color: var(--locked-color);
+    }
+  }
+
+  &__upload {
+    margin-bottom: $spacing-lg;
+  }
+
+  &__upload-area {
+    @include flex(center, center, column);
+    gap: $spacing-sm;
+    border: 2px dashed var(--feed-border);
+    border-radius: $radius-md;
+    padding: $spacing-xl $spacing-lg;
+    min-height: 200px;
+
+    svg {
+      stroke: var(--locked-color);
+    }
+  }
+
+  &__upload-label {
+    @include font(14px, $font-primary, var(--text));
+    font-weight: 600;
+  }
+
+  &__upload-info {
+    @include font(11px, $font-primary, var(--locked-color));
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  &__actions {
+    @include flex(center, space-between, row);
+  }
+
+  &__media-btns {
+    @include flex(center, flex-start, row);
+    gap: $spacing-sm;
+  }
+
+  &__media-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: $radius-full;
+    border: none;
+    cursor: pointer;
+    @include flex(center, center, row);
+
+    &--image {
+      @include background(#3B82F6);
+      color: #ffffff;
+    }
+
+    &--video {
+      @include background(#EF4444);
+      color: #ffffff;
+    }
+
+    &--emoji {
+      @include background(#F59E0B);
+      color: #ffffff;
+    }
+  }
+
+  &__submit-desktop {
+    @include font(14px, $font-primary, #ffffff);
+    @include background(#B8860B);
+    border: none;
+    padding: $spacing-sm $spacing-lg;
+    border-radius: $radius-sm;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .checkin {
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    border-radius: 0;
+    box-shadow: none;
+    padding: $spacing-md;
+    // @include flex(flex-start, flex-start, column);
+
+    &__mobile-header {
+      @include flex(center, space-between, row);
+      width: 100%;
+      margin-bottom: $spacing-lg;
+
+    }
+
+    &__close-mobile {
+      width: 32px;
+      height: 32px;
+      z-index: 2;
+      border-radius: $radius-full;
+      @include background(transparent);
+      @include flex(center, center, row);
+      cursor: pointer;
+      border: none;
+
+      svg {
+        stroke: var(--text);
+      }
+    }
+
+    &__submit-mobile {
+      @include font(14px, $font-primary, #ffffff);
+      @include background(#B8860B);
+      border: none;
+      padding: $spacing-sm $spacing-lg;
+      border-radius: $radius-sm;
+      font-weight: 600;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    &__close-desktop {
+      display: none;
+    }
+
+    &__submit-desktop {
+      display: none;
+    }
+
+    &__user {
+      @include flex(center, flex-start, row);
+      gap: $spacing-sm;
+    }
+
+    &__avatar {
+      width: 40px;
+      height: 40px;
+    }
+
+    &__name {
+      @include font(14px, $font-primary, var(--text));
+      font-weight: 600;
+    }
+
+    &__textarea {
+      @include font(14px, $font-primary, var(--text));
+      flex: 0;
+    }
+
+    &__upload {
+      width: 100%;
+      flex: 1;
+    }
+
+    &__upload-area {
+      min-height: 180px;
+    }
+
+    &__actions {
+      width: 100%;
+      @include flex(center, center, row);
+      padding: $spacing-md 0;
+    }
+
+    &__media-btns {
+      gap: $spacing-md;
+    }
+
+    &__media-btn {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}

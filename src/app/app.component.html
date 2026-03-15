@@ -1,0 +1,34 @@
+<div class="app">
+  <app-top-header />
+
+  <div class="mobile-bg">
+    <img src="assets/images/common/profile.png" alt="" />
+    <div class="mobile-bg__overlay"></div>
+    <div class="mobile-bg__tint"></div>
+  </div>
+
+  <app-sub-header />
+  <div class="layout">
+    <app-left-sidebar />
+    <main class="content">
+      <router-outlet />
+    </main>
+  </div>
+
+  @if (popupService.showChallengeInfo()) {
+    <div class="popup-overlay" (click)="popupService.closeChallengeInfo()">
+      <app-challenge-popup (click)="$event.stopPropagation()" (close)="popupService.closeChallengeInfo()" />
+    </div>
+  }
+
+  @if (popupService.showCheckin()) {
+    <div class="popup-overlay" (click)="popupService.closeCheckin()">
+      <app-checkin-popup (click)="$event.stopPropagation()" (close)="popupService.closeCheckin()" />
+    </div>
+  }
+  @if (popupService.showChallengePopup()) {
+    <div class="popup-overlay">
+      <app-challenge-info (click)="$event.stopPropagation()" (close)="popupService.closeChallengePopup()" />
+    </div>
+  }
+</div>

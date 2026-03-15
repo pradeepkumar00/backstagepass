@@ -1,0 +1,263 @@
+@import 'core';
+
+
+.challenge-info-popup {
+  width: 100%;
+  height: 100%;
+  @include flex(flex-end, flex-end, row);
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+}
+
+.challenge-info {
+  // background: linear-gradient(180deg, rgba(247, 246, 252, 0.3) 0%, #FFFFFF 100%);
+  @include background(var(--primary));
+  // border-radius: $radius-lg;
+  width: 500px;
+  height: 100%;
+  overflow: auto;
+  @include flex(stretch, flex-start, column);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  
+
+  &__header {
+    @include flex(center, flex-start, row);
+    gap: $spacing-sm;
+    padding: $spacing-md $spacing-md;
+    // border-bottom: 1px solid var(--feed-border);
+    flex-shrink: 0;
+  }
+
+  &__close {
+    width: 28px;
+    height: 28px;
+    border-radius: $radius-full;
+    @include background(var(--background));
+    @include flex(center, center, row);
+    cursor: pointer;
+    border: none;
+    flex-shrink: 0;
+    padding: 0;
+
+    svg {
+      stroke: var(--text);
+    }
+  }
+
+  &__header-title {
+    @include font(16px, $font-primary, var(--text));
+    font-weight: 600;
+  }
+
+  &__handle {
+    display: none;
+  }
+
+  &__scroll {
+    @include flex(stretch, flex-start, column);
+    overflow-y: auto;
+    flex: 1;
+  }
+
+  &__hero {
+    position: relative;
+    padding: $spacing-md $spacing-lg 0;
+
+    img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      border-radius: $radius-md;
+      aspect-ratio: 16 / 9;
+    }
+
+  }
+
+  &__circles {
+    position: absolute;
+    bottom: 10px;
+    right: calc(#{$spacing-lg} + 14px);
+    @include flex(center, flex-end, row);
+    gap: 6px;
+    z-index: 2;
+  }
+
+  &__content {
+    padding: 0 $spacing-lg $spacing-lg;
+    height: 100%;
+    @include flex(stretch, flex-start, column);
+    .btn{
+      height: 100%;
+      @include flex(flex-end, center, row);
+    }
+  }
+
+  &__title {
+    @include font(18px, $font-primary, var(--text));
+    font-weight: 700;
+    margin-top: $spacing-md;
+    margin-bottom: $spacing-md;
+  }
+
+  &__stats {
+    @include flex(stretch, flex-start, row);
+    gap: $spacing-md;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__stat-card {
+    flex: 1;
+    @include flex(flex-start, flex-start, column);
+    gap: $spacing-xs;
+    padding: $spacing-md;
+    border: 1px solid var(--feed-border);
+    border-radius: $radius-sm;
+  }
+
+  &__stat-label {
+    @include font(12px, $font-primary, var(--locked-color));
+    font-weight: 400;
+  }
+
+  &__stat-value {
+    @include font(20px, $font-primary, var(--text));
+    font-weight: 700;
+  }
+
+  &__subtitle {
+    @include font(14px, $font-primary, var(--text));
+    font-weight: 700;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__description {
+    @include font(13px, $font-primary, var(--locked-color));
+    line-height: 1.7;
+    font-weight: 400;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__action {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 100px;
+    @include background(var(--action-btn));
+    @include font(15px, $font-primary, #ffffff);
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+}
+
+.progress-circle {
+  position: relative;
+  width: 50px;
+  height: 50px;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+  }
+
+  &__bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.25);
+    stroke-width: 3;
+  }
+
+  &__fill {
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+  }
+
+  &__label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include font(10px, $font-primary, #ffffff);
+    font-weight: 700;
+  }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .challenge-info-popup {
+    @include flex(flex-end, flex-end, column);
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  .challenge-info {
+    width: 100%;
+    // max-height: 85vh;
+    height: auto;
+    border-radius: $radius-lg $radius-lg 0 0;
+    box-shadow: none;
+
+    &__header {
+      display: none;
+    }
+
+    &__handle {
+      @include flex(center, center, row);
+      padding: $spacing-sm 0;
+
+      span {
+        width: 40px;
+        height: 4px;
+        border-radius: 2px;
+        @include background(var(--locked-color));
+        opacity: 0.4;
+      }
+    }
+
+    &__hero {
+      padding: 0 $spacing-md 0;
+
+      img {
+        border-radius: $radius-md;
+      }
+
+    }
+
+    &__circles {
+      right: calc(#{$spacing-md} + 14px);
+    }
+
+    &__content {
+      padding: 0 $spacing-md $spacing-md;
+    }
+
+    &__title {
+      @include font(18px, $font-primary, var(--text));
+    }
+
+    &__description {
+      margin-bottom: $spacing-lg;
+    }
+  }
+
+  .progress-circle {
+    width: 44px;
+    height: 44px;
+
+    &__bg {
+      stroke-width: 2.5;
+    }
+
+    &__fill {
+      stroke-width: 2.5;
+    }
+  }
+}

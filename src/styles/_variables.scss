@@ -1,0 +1,37 @@
+// ── Color Tokens ──
+$primary: var(--primary);
+$secondary: var(--secondary);
+$text: var(--text);
+$background: var(--background);
+
+// ── Typography ──
+$font-primary: 'Inter', sans-serif;
+
+// ── Layout Dimensions ──
+$header-height: 60px;
+$subheader-height: 56px;
+$sidebar-width: 258px;
+$content-height: calc(100vh - 116px);
+
+// ── Spacing Scale ──
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+
+// ── Border Radius ──
+$radius-sm: 8px;
+$radius-md: 12px;
+$radius-lg: 16px;
+$radius-full: 50%;
+
+// ── Shadows ──
+$border-color: var(--border-color);
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+$shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+// ── Responsive Breakpoints ──
+$mobile-breakpoint: 768px;
+$mobile-header-height: 52px;
+$mobile-daypicker-height: 80px;

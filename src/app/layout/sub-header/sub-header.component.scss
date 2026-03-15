@@ -1,0 +1,119 @@
+@import 'core';
+
+.sub-header {
+  height: $subheader-height;
+  padding: 0 $spacing-lg;
+  border-bottom: 1px solid var(--border-header);
+  border-top: 1px solid var(--border-header);
+  position: fixed;
+  top: $header-height;
+  left: 0;
+  right: 0;
+  z-index: 99;
+
+  @include flex(center, space-between, row);
+  @include background(var(--sub-header-bg));
+
+  &__left {
+    @include flex(center, flex-start, row);
+    gap: $spacing-md;
+
+    .back-btn {
+      @include flex(center, center, row);
+      @include font(14px, $font-primary, var(--text));
+      font-weight: 600;
+      gap: $spacing-xs;
+      border-radius: $radius-sm;
+      transition: background 0.2s;
+
+      svg {
+        stroke: var(--text);
+      }
+
+      &:hover {
+        @include background(var(--hover-bg));
+      }
+    }
+
+    .day-indicator {
+      @include font(14px, $font-primary, var(--text));
+      font-weight: 600;
+    }
+  }
+
+  &__center {
+    @include font(14px, $font-primary, var(--text-secondary));
+  }
+
+  &__right {
+    @include flex(center, flex-end, row);
+    gap: $spacing-sm;
+
+    .info-btn {
+      @include flex(center, center, row);
+      width: 28px;
+      height: 28px;
+      border-radius: $radius-full;
+      transition: background 0.2s;
+
+      svg {
+        stroke: var(--text-secondary);
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .sub-header {
+    top: 0;
+    height: $mobile-header-height;
+    padding: 0 $spacing-sm;
+    border-bottom: none;
+    background: transparent;
+    z-index: 100;
+
+    &__left {
+      flex-shrink: 0;
+
+      .back-btn {
+        padding: $spacing-xs;
+        @include font(14px, $font-primary, var(--text));
+
+        svg {
+          width: 20px;
+          height: 20px;
+          stroke: var(--text);
+        }
+
+        &__text {
+          display: none;
+        }
+      }
+
+      .day-indicator {
+        display: none;
+      }
+    }
+
+    &__center {
+      flex: 1;
+      text-align: center;
+      @include font(15px, $font-primary, var(--text));
+      font-weight: 600;
+    }
+
+    &__right {
+      flex-shrink: 0;
+
+      .info-btn {
+        width: 40px;
+        height: 40px;
+        background: var(--background);
+        border-radius: $radius-full;
+        svg {
+          stroke: var(--text);
+        }
+      }
+    }
+  }
+}

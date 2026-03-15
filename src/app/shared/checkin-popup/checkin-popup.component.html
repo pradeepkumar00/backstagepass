@@ -1,0 +1,82 @@
+<div class="checkin-popup">
+<div class="checkin">
+  <div class="checkin__header">
+    <!-- <img src="assets/images/common/back.svg" alt="" /> -->
+  </div>
+  <!-- Mobile Header -->
+  <div class="checkin__mobile-header">
+    <button class="checkin__close-mobile" (click)="onClose()" aria-label="Close">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </button>
+    <button class="checkin__submit-mobile" (click)="onSubmit()">Submit</button>
+  </div>
+
+  <!-- Desktop Close -->
+  <button class="checkin__close-desktop" (click)="onClose()" aria-label="Close">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round">
+      <line x1="18" y1="6" x2="6" y2="18" />
+      <line x1="6" y1="6" x2="18" y2="18" />
+    </svg>
+  </button>
+
+  <div class="checkin__user">
+    <div class="checkin__avatar">
+      <img src="assets/images/side-nav/ava.png" alt="User" />
+    </div>
+    <span class="checkin__name">Ashraf Idrishi</span>
+  </div>
+
+  <textarea
+    class="checkin__textarea"
+    placeholder="What did you complete today?"
+    rows="3"
+  ></textarea>
+
+  <div class="checkin__upload">
+    <div class="checkin__upload-area">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+        <polyline points="17 8 12 3 7 8" />
+        <line x1="12" y1="3" x2="12" y2="15" />
+      </svg>
+      <span class="checkin__upload-label">Upload</span>
+      <span class="checkin__upload-info">Images/Videos should be horizontal, at least 1280×720px.</span>
+      <span class="checkin__upload-info">The maximum image size should be 2MB.</span>
+    </div>
+  </div>
+
+  <div class="checkin__actions">
+    <div class="checkin__media-btns">
+      <button class="checkin__media-btn checkin__media-btn--image" aria-label="Add image">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2" />
+          <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor" />
+          <path d="M21 15l-5-5L5 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </button>
+      <button class="checkin__media-btn checkin__media-btn--video" aria-label="Add video">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
+          <polygon points="10,8 16,12 10,16" fill="currentColor" />
+        </svg>
+      </button>
+      <button class="checkin__media-btn checkin__media-btn--emoji" aria-label="Add emoji">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
+          <path d="M8 14s1.5 2 4 2 4-2 4-2" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <line x1="9" y1="9" x2="9.01" y2="9" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+          <line x1="15" y1="9" x2="15.01" y2="9" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+    <button class="checkin__submit-desktop" (click)="onSubmit()">Submit Checkin</button>
+  </div>
+</div>
+</div>

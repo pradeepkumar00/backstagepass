@@ -1,0 +1,25 @@
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  display: none;
+}
+
+::-webkit-scrollbar-track {
+  @include background(transparent);
+}
+
+::-webkit-scrollbar-thumb {
+  @include background(var(--border-color));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @include background(var(--text-secondary));
+}
+
+@media (max-width: $mobile-breakpoint) {
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}

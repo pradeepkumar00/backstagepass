@@ -1,0 +1,46 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @include font(14px, $font-primary, var(--text));
+  @include background(var(--background));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-family: $font-primary;
+  background: transparent;
+}
+
+input, textarea {
+  font-family: $font-primary;
+  outline: none;
+  border: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}

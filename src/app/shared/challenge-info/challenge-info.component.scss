@@ -1,0 +1,295 @@
+@import 'core';
+
+
+.info-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.5);
+  @include flex(center, center, row);
+}
+
+.info-modal {
+  @include background(var(--primary));
+  border-radius: $radius-lg;
+  width: 420px;
+  max-height: 90vh;
+  overflow: hidden;
+  @include flex(flex-end, flex-start, column);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+  position: relative;
+  &__header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    height: 183px;
+    width: 100%;
+    // background: var(--join-now-gradient);
+    background: linear-gradient(180deg, rgba(247, 246, 252, 0.3) 0%, #FFFFFF 100%);
+
+    backdrop-filter: blur(200px);
+  }
+
+  &__close {
+    // position: absolute;
+    top: $spacing-md;
+    right: $spacing-md;
+    z-index: 10;
+    width: 30px;
+    height: 30px;
+    border-radius: $radius-full;
+    @include background(var(--background));
+    @include flex(center, center, row);
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    transform: translate(-10px, 10px);
+
+    svg {
+      stroke: var(--text);
+    }
+  }
+
+  &__scroll {
+    overflow-y: auto;
+    flex: 1;
+  }
+
+  &__hero {
+    position: relative;
+    padding: $spacing-sm $spacing-md $spacing-md $spacing-md;
+
+    img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      border-radius: $radius-md;
+    }
+  }
+
+  &__hero-gradient {
+    position: absolute;
+    bottom: 0;
+    left: $spacing-md;
+    right: $spacing-md;
+    height: 50%;
+    background: linear-gradient(180deg, transparent 0%, var(--primary) 100%);
+    border-radius: 0 0 $radius-md $radius-md;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  &__circles {
+    position: absolute;
+    bottom: 10px;
+    right: calc(#{$spacing-md} + 10px);
+    @include flex(center, flex-end, row);
+    gap: 6px;
+    z-index: 2;
+  }
+
+  &__body {
+    padding: $spacing-md $spacing-lg $spacing-lg;
+  }
+
+  &__title {
+    @include font(18px, $font-primary, var(--text));
+    font-weight: 700;
+    margin-bottom: $spacing-md;
+  }
+
+  &__stats {
+    @include flex(center, flex-start, row);
+    gap: $spacing-md;
+    margin-bottom: $spacing-md;
+    padding-bottom: $spacing-md;
+  }
+
+  &__stat {
+    @include flex(center, flex-start, row);
+    gap: $spacing-sm;
+  }
+
+  &__play-icon {
+    @include flex(center, center, row);
+    width: 28px;
+    height: 28px;
+    border-radius: $radius-full;
+    border: 1px solid var(--feed-border);
+    flex-shrink: 0;
+  }
+
+  &__stat-text {
+    @include font(13px, $font-primary, var(--text));
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  &__stat-divider {
+    width: 1px;
+    height: 24px;
+    @include background(var(--feed-border));
+    flex-shrink: 0;
+  }
+
+  &__avatars {
+    @include flex(center, flex-start, row);
+    flex-shrink: 0;
+
+    img {
+      width: 24px;
+      height: 24px;
+      border-radius: $radius-full;
+      border: 2px solid var(--primary);
+      object-fit: cover;
+
+      &:not(:first-child) {
+        margin-left: -8px;
+      }
+    }
+  }
+
+  &__subtitle {
+    @include font(14px, $font-primary, var(--text));
+    font-weight: 600;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__description {
+    @include font(13px, $font-primary, var(--text));
+    line-height: 1.7;
+    font-weight: 400;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__cta {
+    @include font(13px, $font-primary, var(--text));
+    text-align: center;
+    margin-bottom: $spacing-md;
+    font-weight: 500;
+  }
+
+  &__join {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 100px;
+    background: linear-gradient(90deg, #B8860B, #D4A017);
+    @include font(15px, $font-primary, #ffffff);
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
+
+.progress-ring {
+  position: relative;
+  width: 50px;
+  height: 50px;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+  }
+
+  &__bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.25);
+    stroke-width: 3;
+  }
+
+  &__fill {
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+  }
+
+  &--25 .progress-ring__fill {
+    stroke: #3B82F6;
+  }
+
+  &--50 .progress-ring__fill {
+    stroke: #F59E0B;
+  }
+
+  &--75 .progress-ring__fill {
+    stroke: #EF4444;
+  }
+
+  &__label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include font(10px, $font-primary, #ffffff);
+    font-weight: 700;
+  }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .info-overlay {
+    @include flex(flex-end, flex-end, column);
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  .info-modal {
+    width: 100%;
+    max-height: 90vh;
+    border-radius: $radius-lg $radius-lg 0 0;
+    box-shadow: none;
+
+    &__close {
+      display: none;
+    }
+
+    &__hero {
+      padding: $spacing-md $spacing-md 0;
+    }
+
+    &__hero-gradient {
+      left: $spacing-md;
+      right: $spacing-md;
+    }
+
+    &__circles {
+      right: calc(#{$spacing-md} + 10px);
+    }
+
+    &__body {
+      padding: $spacing-md;
+    }
+
+    &__title {
+      @include font(18px, $font-primary, var(--text));
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    &__join {
+      padding: 14px;
+    }
+  }
+
+  .progress-ring {
+    width: 44px;
+    height: 44px;
+
+    &__bg {
+      stroke-width: 2.5;
+    }
+
+    &__fill {
+      stroke-width: 2.5;
+    }
+  }
+}

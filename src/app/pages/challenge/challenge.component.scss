@@ -1,0 +1,528 @@
+@import 'core';
+
+.challenge {
+  padding: $spacing-lg;
+  max-width: 640px;
+  margin: 0 auto;
+
+  .checkin-banner {
+    @include flex(center, center, row);
+    gap: $spacing-sm;
+
+    // padding: $spacing-md $spacing-lg;
+    .checkin-desktop {
+      @include font(18px, $font-primary, var(--text));
+      font-weight: 600;
+      line-height: 26px;
+      letter-spacing: -0.04%;
+    }
+
+    &__label {
+      @include font(15px, $font-primary, var(--text));
+      font-weight: 500;
+    }
+
+    &__timer {
+      @include flex(center, center, row);
+      @include font(12px, $font-primary, #ffffff);
+      @include background(#E5484D);
+      gap: $spacing-xs;
+      padding: 4px $spacing-md;
+      border-radius: $radius-lg;
+      font-weight: 500;
+
+      .timer-icon {
+        display: none;
+      }
+    }
+  }
+
+  .checkin-mobile {
+    display: none;
+  }
+
+  .post-input {
+    @include flex(center, flex-start, row);
+    @include background(var(--primary));
+    gap: $spacing-md;
+    padding: $spacing-md $spacing-md;
+    cursor: pointer;
+    // border: 2px solid;
+    // border-image-source: var(--post-input-border);
+    border: 2px solid transparent;
+    background:
+      linear-gradient(var(--primary), var(--primary)) padding-box,
+      var(--post-input-border) border-box;
+
+    border-radius: $spacing-lg;
+    margin: $spacing-md 0;
+
+    &__avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: $radius-full;
+      overflow: hidden;
+      flex-shrink: 0;
+      @include background(var(--background-tertiary));
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &__field {
+      flex: 1;
+      @include font(14px, $font-primary, var(--text));
+      @include background(transparent);
+      padding: $spacing-sm 0;
+
+      &::placeholder {
+        color: var(--locked-color);
+      }
+    }
+  }
+
+  .submission-card {
+    border-radius: $radius-md;
+    overflow: hidden;
+    // margin-bottom: $spacing-lg;
+    // background: var(--Colors-Semantic-Success-3, #E6F6EB);
+
+    &__banner {
+      @include flex(flex-start, center, row);
+      background-color: var(--confetti-bg);
+      background-image: url('/assets/images/common/bg.png');
+      background-size: cover;
+      background-position: top center;
+      background-repeat: no-repeat;      
+      height: 66px;
+      // @include background(linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(74, 222, 128, 0.05)));
+      padding: $spacing-md $spacing-md;
+      position: relative;
+      overflow: hidden;
+    }
+
+    &__title {
+      @include font(15px, $font-primary, #22c55e);
+      font-weight: 600;
+    }
+
+    &__body {
+      transform: translateY(-16px);
+      border-radius: $radius-md;
+      @include background(var(--primary));
+      padding: 0;
+      border: 1px solid var(--feed-border);
+    }
+    &__header {
+      @include flex(flex-start, space-between, row);
+      // margin-bottom: $spacing-md;
+      padding: $spacing-sm;
+
+    }
+
+    &__author {
+      @include flex(center, flex-start, row);
+      gap: $spacing-sm;
+    }
+
+    &__avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: $radius-full;
+      overflow: hidden;
+      flex-shrink: 0;
+      @include background(var(--background-tertiary));
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &__media {
+      position: relative;
+      // border-radius: $radius-sm;
+      overflow: hidden;
+      margin-bottom: $spacing-sm;
+      // padding: $spacing-md;
+
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+      }
+    }
+    &__meta {
+      @include flex(flex-start, center, column);
+    }
+
+    &__name {
+      @include font(14px, $font-primary, var(--text));
+      font-weight: 600;
+    }
+
+    &__time {
+      @include font(12px, $font-primary, var(--text-secondary));
+    }
+
+    &__menu {
+      @include flex(center, center, row);
+      width: 28px;
+      height: 28px;
+      border-radius: $radius-full;
+      color: var(--text-secondary);
+      transition: background 0.2s;
+    }
+
+    &__content {
+      @include font(14px, $font-primary, var(--text));
+      line-height: 1.6;
+      font-weight: 400;
+      // margin-bottom: $spacing-md;
+      padding: $spacing-sm;
+    }
+    &__footer {
+      @include flex(center, space-between, row);
+      padding: $spacing-sm;
+      // border-top: 1px solid var(--border-color);
+    }
+
+    &__reactions {
+      @include flex(center, flex-start, row);
+      gap: $spacing-sm;
+
+      .reaction-btn {
+        @include flex(center, center, row);
+        @include font(14px, $font-primary, var(--text));
+        font-weight: 600;
+        gap: 2px;
+        // padding: $spacing-xs $spacing-sm;
+        // border-radius: $radius-lg;
+        // transition: background 0.2s;
+        // background: var(--header-no);
+
+        .reaction-count {
+          @include font(13px, $font-primary, var(--text));
+          font-weight: 600;
+          margin-left: $spacing-xs;
+        }
+      }
+
+      .reaction-btn--thanks {
+        padding: $spacing-sm $spacing-md;
+        border-radius: 100px;
+        transition: background 0.2s;
+        background: var(--header-no);
+      }
+    }
+
+    &__comment-count {
+      @include font(13px, $font-primary, var(--text-secondary));
+    }
+
+    &__play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 56px;
+      height: 56px;
+      border-radius: $radius-full;
+      @include background(rgba(0, 0, 0, 0.4));
+      @include flex(center, center, row);
+      backdrop-filter: blur(4px);
+    }
+  }
+
+  .community-header {
+    @include background(var(--primary));
+    padding: 12px 16px;
+    border-radius: $spacing-lg;
+    border: 1px solid var(--community-header-border);
+    @include flex(center, center, column);
+
+    &__title {
+      @include flex(center, center, row);
+      @include font(16px, $font-primary, var(--text));
+      font-weight: 600;
+      margin-bottom: $spacing-xs;
+      position: relative;
+
+      .img1 {
+        transform: translateX(6px);
+        z-index: 1;
+      }
+
+      .img2 {
+        // transform: translateX(12px);
+        z-index: 2;
+      }
+
+      .img3 {
+        transform: translateX(-6px);
+        z-index: 3;
+      }
+    }
+
+    &__subtitle {
+      @include font(13px, $font-primary, var(--text-secondary));
+    }
+  }
+
+  .feed {
+    margin-top: $spacing-md;
+    @include flex(center, center, column);
+
+    .post-card {
+      width: 100%;
+      @include background(var(--card-bg));
+      border: 1px solid var(--border-color);
+      border-radius: $radius-md;
+      margin-bottom: $spacing-md;
+      border: 1px solid var(--feed-border);
+      border-radius: $radius-md;
+
+      &--pinned {
+        border-bottom: 1px solid var(--feed-border);
+      }
+
+      &__pin {
+        @include font(16px, $font-primary, var(--text));
+        font-weight: 400;
+        border-bottom: 1px solid var(--feed-border);
+        padding: $spacing-xs $spacing-sm;
+      }
+
+      &__header {
+        @include flex(flex-start, space-between, row);
+        margin-bottom: $spacing-md;
+        padding: $spacing-sm;
+
+      }
+
+      &__author {
+        @include flex(center, flex-start, row);
+        gap: $spacing-sm;
+      }
+
+      &__avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: $radius-full;
+        overflow: hidden;
+        flex-shrink: 0;
+        @include background(var(--background-tertiary));
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      &__meta {
+        @include flex(flex-start, center, column);
+      }
+
+      &__name {
+        @include font(14px, $font-primary, var(--text));
+        font-weight: 600;
+      }
+
+      &__time {
+        @include font(12px, $font-primary, var(--text-secondary));
+      }
+
+      &__menu {
+        @include flex(center, center, row);
+        width: 28px;
+        height: 28px;
+        border-radius: $radius-full;
+        color: var(--text-secondary);
+        transition: background 0.2s;
+
+        &:hover {
+          @include background(var(--hover-bg));
+        }
+      }
+
+      &__content {
+        @include font(14px, $font-primary, var(--text));
+        line-height: 1.6;
+        font-weight: 400;
+        // margin-bottom: $spacing-md;
+        padding: $spacing-sm;
+      }
+
+      &__steps {
+        @include flex(stretch, flex-start, column);
+        gap: $spacing-sm;
+        font-weight: 400;
+        // margin-bottom: $spacing-md;
+        padding: $spacing-sm;
+
+        .step-item {
+          @include flex(center, flex-start, row);
+          gap: $spacing-sm;
+
+          &__number {
+            @include flex(center, center, row);
+            @include font(11px, $font-primary, #ffffff);
+            @include background(var(--primary));
+            width: 20px;
+            height: 20px;
+            border-radius: $radius-full;
+            flex-shrink: 0;
+            font-weight: 600;
+          }
+
+          &__text {
+            @include font(13px, $font-primary, var(--text));
+          }
+        }
+      }
+
+      &__footer {
+        @include flex(center, space-between, row);
+        padding: $spacing-sm;
+        // border-top: 1px solid var(--border-color);
+      }
+
+      &__reactions {
+        @include flex(center, flex-start, row);
+        gap: $spacing-sm;
+
+        .reaction-btn {
+          @include flex(center, center, row);
+          @include font(14px, $font-primary, var(--text));
+          font-weight: 600;
+          gap: 2px;
+          // padding: $spacing-xs $spacing-sm;
+          // border-radius: $radius-lg;
+          // transition: background 0.2s;
+          // background: var(--header-no);
+
+          .reaction-count {
+            @include font(13px, $font-primary, var(--text));
+            font-weight: 600;
+            margin-left: $spacing-xs;
+          }
+        }
+
+        .reaction-btn--thanks {
+          padding: $spacing-sm $spacing-md;
+          border-radius: 100px;
+          transition: background 0.2s;
+          background: var(--header-no);
+        }
+      }
+
+      &__comment-count {
+        @include font(13px, $font-primary, var(--text-secondary));
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .challenge {
+    padding: $spacing-md;
+
+    .checkin-banner {
+      @include flex(center, space-between, row);
+      // padding: $spacing-md 0px;
+      gap: $spacing-md;
+
+      &__timer {
+        .timer-icon {
+          display: block;
+          stroke: #ffffff;
+        }
+      }
+    }
+
+    .checkin-desktop {
+      display: none;
+    }
+
+    .checkin-mobile {
+      display: inline;
+    }
+
+    .post-input {
+      padding: $spacing-md;
+
+      &__avatar {
+        width: 32px;
+        height: 32px;
+      }
+
+      &__field {
+        @include font(13px, $font-primary, var(--text));
+      }
+    }
+
+    .community-header {
+      &__title {
+        @include font(15px, $font-primary, var(--text));
+      }
+
+      &__subtitle {
+        @include font(12px, $font-primary, var(--text-secondary));
+      }
+    }
+
+    .feed {
+
+      .post-card {
+        // padding: $spacing-md;
+        border-radius: $radius-sm;
+
+        &__avatar {
+          width: 36px;
+          height: 36px;
+        }
+
+        &__name {
+          @include font(13px, $font-primary, var(--text));
+        }
+
+        &__content {
+          @include font(13px, $font-primary, var(--text));
+        }
+
+        &__steps {
+
+          .step-item {
+            &__number {
+              width: 18px;
+              height: 18px;
+              @include font(10px, $font-primary, #ffffff);
+            }
+
+            &__text {
+              @include font(12px, $font-primary, var(--text));
+            }
+          }
+        }
+
+        &__reactions {
+
+          .reaction-btn {
+            @include font(13px, $font-primary, var(--text));
+            // padding: $spacing-xs 6px;
+          }
+        }
+
+        &__comment-count {
+          display: none;
+        }
+      }
+    }
+  }
+}

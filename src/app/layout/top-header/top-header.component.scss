@@ -1,0 +1,135 @@
+@import 'core';
+
+.top-header {
+  height: $header-height;
+  padding: 0 $spacing-lg;
+  border-bottom: 1px solid var(--border-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+
+  @include flex(center, space-between, row);
+  @include background(var(--primary));
+
+  .desktop-only {
+    display: flex;
+  }
+
+  .mobile-only {
+    display: none;
+  }
+
+  .brand {
+    @include flex(center, flex-start, row);
+    gap: $spacing-sm;
+
+    .logo-icon {
+      height: 24px;
+      img {
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .brand-name {
+      @include font(18px, $font-primary, var(--text));
+      font-weight: 700;
+      .brand-name-pass {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--common-color);
+      }
+    }
+  }
+
+  .header-actions {
+    @include flex(center, flex-end, row);
+    gap: $spacing-md;
+
+    .theme-toggle {
+      @include flex(center, center, row);
+      width: 36px;
+      height: 36px;
+      border-radius: $radius-full;
+      transition: background 0.2s;
+
+      &:hover {
+        @include background(var(--hover-bg));
+      }
+
+      .toggle-icon {
+        @include font(18px, $font-primary, var(--text));
+      }
+    }
+
+    .streak {
+      @include flex(center, center, row);
+      @include background(var(--header-no));
+      gap: $spacing-xs;
+      padding: $spacing-xs $spacing-sm;
+      border-radius: $radius-lg;
+
+      .streak-icon {
+        @include font(16px, $font-primary, var(--streak-color));
+      }
+
+      .streak-count {
+        @include font(14px, $font-primary, var(--text));
+        font-weight: 600;
+      }
+    }
+
+
+    .icon-btn {
+      @include flex(center, center, row);
+      width: 36px;
+      height: 36px;
+      border-radius: $radius-full;
+      transition: background 0.2s;
+
+      @include font(14px, $font-primary, var(--text));
+
+      &:hover {
+        @include background(var(--hover-bg));
+      }
+
+      svg {
+        stroke: var(--text);
+      }
+    }
+
+    .avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: $radius-full;
+      overflow: hidden;
+      @include background(var(--background-tertiary));
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .mobile-back,
+  .mobile-info {
+    @include flex(center, center, row);
+    width: 36px;
+    height: 36px;
+    border-radius: $radius-full;
+
+    svg {
+      stroke: var(--text);
+    }
+  }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .top-header {
+    display: none;
+  }
+}

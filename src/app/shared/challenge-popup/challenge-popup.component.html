@@ -1,0 +1,51 @@
+<div class="challenge-info-popup">
+<div class="challenge-info">
+  <!-- Desktop header -->
+  <div class="challenge-info__header">
+    <button class="challenge-info__close" (click)="onClose()" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </button>
+    <span class="challenge-info__header-title">Challenge Description</span>
+  </div>
+
+  <!-- Mobile drag handle -->
+  <div class="challenge-info__handle">
+    <span></span>
+  </div>
+
+  <div class="challenge-info__scroll">
+    <div class="challenge-info__hero">
+      <img src="assets/images/common/profile.png" alt="9-Day Fitness Challenge" />
+    </div>
+
+    <div class="challenge-info__content">
+      <h2 class="challenge-info__title">9-Day Fitness Challenge</h2>
+
+      <div class="challenge-info__stats">
+        <div class="challenge-info__stat-card">
+          <span class="challenge-info__stat-label">Total Checkins</span>
+          <span class="challenge-info__stat-value">9</span>
+        </div>
+        <div class="challenge-info__stat-card">
+          <span class="challenge-info__stat-label">Participants Joined</span>
+          <span class="challenge-info__stat-value">75</span>
+        </div>
+      </div>
+
+      <h3 class="challenge-info__subtitle">Description</h3>
+      <p class="challenge-info__description">
+        This 9-day fitness challenge is designed to help you build consistency, boost energy,
+        and feel stronger—one day at a time. Each day comes with a simple, achievable fitness
+        task that fits easily into your routine, no matter your current fitness level.
+      </p>
+      <div class="btn">
+      <button class="challenge-info__action" (click)="onClose()">Got it</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
