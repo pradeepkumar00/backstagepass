@@ -44,6 +44,12 @@
   &__center {
     @include font(14px, $font-primary, var(--text-secondary));
     font-weight: 600;
+    &.mobile {
+      display: none;
+    }
+    &.desktop {
+      display: block;
+    }
   }
 
   &__right {
@@ -101,6 +107,12 @@
       text-align: center;
       @include font(15px, $font-primary, var(--text));
       font-weight: 600;
+      &.mobile {
+        display: block;
+      }
+      &.desktop {
+        display: none;
+      }  
     }
 
     &__right {

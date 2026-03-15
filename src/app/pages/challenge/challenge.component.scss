@@ -184,7 +184,7 @@
       line-height: 1.6;
       font-weight: 400;
       // margin-bottom: $spacing-md;
-      padding: $spacing-sm;
+      padding: 0 $spacing-sm $spacing-sm $spacing-sm;
     }
     &__footer {
       @include flex(center, space-between, row);
@@ -292,15 +292,16 @@
       }
 
       &__pin {
-        @include font(16px, $font-primary, var(--text));
+        @include font(13px, $font-primary, var(--text));
         font-weight: 400;
+        line-height: 16px;
         border-bottom: 1px solid var(--feed-border);
         padding: $spacing-xs $spacing-sm;
       }
 
       &__header {
         @include flex(flex-start, space-between, row);
-        margin-bottom: $spacing-md;
+        // margin-bottom: $spacing-md;
         padding: $spacing-sm;
 
       }
@@ -356,7 +357,7 @@
         line-height: 1.6;
         font-weight: 400;
         // margin-bottom: $spacing-md;
-        padding: $spacing-sm;
+        padding: 0 $spacing-sm $spacing-sm $spacing-sm;
       }
 
       &__steps {

@@ -67,7 +67,7 @@ export class ChallengeComponent {
       id: 3,
       author: 'Pappu Saha',
       avatar: 'assets/images/avatar/3.png',
-      timeAgo: '2 day ago',
+      timeAgo: '2 days ago',
       content: 'Today\'s challenge workout completed—feeling stronger already.',
       pinned: false,
       reactions: 12,
